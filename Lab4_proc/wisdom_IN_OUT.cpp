@@ -1,4 +1,6 @@
 #include <fstream>
+#include <iostream>
+#include <string>
 #include "wisdom.h"
 using namespace std;
 namespace collection_of_wisdom {
@@ -13,33 +15,69 @@ namespace collection_of_wisdom {
 	wisdom* In(ifstream &ifst)
 	{
 		wisdom *sp;
+		string Line; //Временное решение на случай переполнения
 		int k;
 		ifst >> k;
 		switch (k) {
 		case 1:
 			sp = new wisdom;
 			sp->k = wisdom::key::APHORISM;
-			ifst.getline(sp->expression, 100);
-			In(sp->a, ifst);
-			ifst >> sp->rate;
-			return sp;
+			getline(ifst, Line); //Строка заносится в Line
+			if (Line.length() < 100) { //Проверка на переполнение - если длина Line < 100
+				strcpy_s(sp->expression, 100, Line.c_str());
+				In(sp->a, ifst);
+				ifst >> sp->rate;
+				return sp;
+			}
+			else{
+				Line.resize(99);
+				strcpy_s(sp->expression, 100, Line.c_str());
+				In(sp->a, ifst);
+				ifst >> sp->rate;
+				return sp;
+			}
 		case 2:
 			sp = new wisdom;
 			sp->k = wisdom::key::PROVERB;
-			ifst.getline(sp->expression, 100);
-			In(sp->p, ifst);
-			ifst >> sp->rate;
-			return sp;
+			getline(ifst, Line); //Строка заносится в Line
+			if (Line.length() < 100) { //Проверка на переполнение - если длина Line < 100
+				strcpy_s(sp->expression, 100, Line.c_str());
+				In(sp->p, ifst);
+				ifst >> sp->rate;
+				return sp;
+			}
+			else {
+				Line.resize(99);
+				strcpy_s(sp->expression, 100, Line.c_str());
+				In(sp->p, ifst);
+				ifst >> sp->rate;
+				return sp;
+			}
 		case 3:
 			sp = new wisdom;
 			sp->k = wisdom::key::PUZZLE;
-			ifst.getline(sp->expression, 100);
-			In(sp->z, ifst);
-			ifst >> sp->rate;
-			return sp;
+			getline(ifst, Line); //Строка заносится в Line
+			if (Line.length() < 100) { //Проверка на переполнение - если длина Line < 100
+				strcpy_s(sp->expression, 100, Line.c_str());
+				In(sp->z, ifst);
+				ifst >> sp->rate;
+				return sp;
+			}
+			else {
+				Line.resize(99);
+				strcpy_s(sp->expression, 100, Line.c_str());
+				In(sp->z, ifst);
+				ifst >> sp->rate;
+				return sp;
+			}
 		default:
+			char Junk[100]; //для мусора
+			ifst.getline(Junk, 100); //Здесь - выражение
+			ifst.getline(Junk, 100); //Здесь - уникальная характеристика
+			ifst.getline(Junk, 100); //Здесь - оценка
 			return 0;
 		}
+		Line.clear();
 	};
 	// Вывод параметров текущей мудрости в поток
 	void Out(wisdom &s, ofstream &ofst) {
