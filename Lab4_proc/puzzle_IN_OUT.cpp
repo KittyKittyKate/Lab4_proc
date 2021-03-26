@@ -4,18 +4,41 @@
 #include "puzzle.h"
 using namespace std;
 namespace collection_of_wisdom {
+	string FindData(const string &Text, string &Line);
+	char& CheckForOverflow(string & Data, char char_text[], ifstream &ifst, int Len);
 	// Ввод из файла
-	void In(puzzle &a, ifstream &ifst) {
-		string Line; //Временное решение на случай переполнения
-		getline(ifst, Line); //Строка заносится в Line
-		if (Line.length() < 20) { //Проверка на переполнение - если длина Line < 20
-			strcpy_s(a.answer, 20, Line.c_str());
+	string In(puzzle &a, ifstream &ifst) {
+		string Full_Line;
+		string Data;
+		bool Exit_Flag = true;
+
+		do {
+			getline(ifst, Full_Line);//строка с ответа
+			Data = FindData("Answer:", Full_Line);//В Data будет ответ
+			Exit_Flag = true;
+
+			if (Data.compare("error") == 0) { //если ответа нет, то выбрасываем послед. строки и переходим к новой мудрости
+				delete[] &a;
+				string Junk; //для мусора
+				getline(ifst, Junk); //Здесь - оценка
+				Junk.clear();
+				return "error";
+			}
+			else if (Data.compare("empty") == 0) {//если пустая строка
+				Exit_Flag = false; // если false, то продолжаем цикл
+			}
+		} while ((ifst.eof() == false) && (Exit_Flag == false));
+
+		if (ifst.eof()) {
+			cout << "INFORMATION: the end of file." << endl;
+			return "";
 		}
-		else {
-			Line.resize(19);
-			strcpy_s(a.answer, 20, Line.c_str());
+		else { //если не конец файла, то проверяем на переполнение
+			*a.answer = CheckForOverflow(Data, a.answer, ifst, 20);
+			Data.clear();
+			Full_Line.clear();
+			return "";
 		}
-		Line.clear();
 	};
 	void Out(puzzle &a, ofstream &ofst) {
 		ofst << "' - Answer: " << a.answer;

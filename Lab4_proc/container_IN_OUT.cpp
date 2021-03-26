@@ -5,6 +5,9 @@ namespace collection_of_wisdom {
 	// —игнатуры требуемых внешних функций
 	wisdom *In(ifstream &ifst);// ¬вод содержимого контейнера из указанного потока
 	int Count_Comma(wisdom &s);
+	string FindData(const string &Text, string &Line);
+	char& CheckForOverflow(string & Data, char char_text[], ifstream &ifst, int Len);
+
 	void In(container &c, ifstream &ifst) {
 		while (!ifst.eof()) {
 			if ((c.cont[c.lenght] = In(ifst)) != 0){ c.lenght++; }
