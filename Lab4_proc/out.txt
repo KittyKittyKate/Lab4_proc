@@ -1,0 +1,11 @@
+Filled container.
+Container contains 0 elements.
+
+
+Sorted container.
+Container contains 0 elements.
+
+
+Aphorism container.
+Only aphorisms.
+Empty container.
