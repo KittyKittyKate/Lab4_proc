@@ -19,7 +19,6 @@ namespace collection_of_wisdom {
 			Exit_Flag = true;
 
 			if (Data.compare("error") == 0) { //если страны нет, то выбрасываем послед. строки и переходим к новой мудрости
-				delete[] &p;
 				string Junk; //дл€ мусора
 				getline(ifst, Junk); //«десь - оценка
 				Junk.clear();

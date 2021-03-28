@@ -109,6 +109,7 @@ namespace collection_of_wisdom {
 			break;
 		case wisdom::key::PROVERB:
 			if (In(sp->p, ifst) == "error") {
+				delete[] sp;
 				return 0;
 			}
 
@@ -162,6 +163,11 @@ namespace collection_of_wisdom {
 			}
 			else if (Data.compare("empty") == 0) { // если "пусто"(пустая строка), то идем на следующую строку
 				Exit_Flag = false;
+			}
+			else if (Data.compare("error") == 0) {
+				cout << "ERROR: misprint in field 'Rate:'." << endl;
+				delete[] sp;
+				return 0;
 			}
 		} while ((ifst.eof() == false) && (Exit_Flag == false));
 

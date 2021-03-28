@@ -210,6 +210,70 @@ namespace TestLab4proc
 			Assert::AreEqual(Difference(ifst_to_cmp, ifst_IDEAL), 1); //OK 
 			Clear(c);
 		}
+		TEST_METHOD(A_P_P_OverBuf_For_Int) //Проверка трех подклассов на поведение в случае выхода численных значений за пределы
+		{
+			ifstream ifst("in_3_overbuf_int.txt"); //В файле 3 мудрости с rate > 10, rate < 0 и 0 < rate <10
+			container c;
+			Init(c);
+			In(c, ifst);
+			Assert::AreEqual(c.lenght, 1); //OK, на входе - 3, на выход прошла только 1 мудрость
+			Clear(c);
+		}
+		TEST_METHOD(Wrong_Wisdom_Type_Of_Wisdom) //Проверка поведения в случае неверного формата ввода (отсутствует строка "Type of wisdom:")
+		{
+			ifstream ifst("in_wr_type_of_w.txt"); //В файле 1 мудрость без "Type of wisdom:"
+			ofstream ofst("out_wr_type_of_w.txt");
+			container c;
+			Init(c);
+			In(c, ifst);
+			Out(c, ofst);
+			Assert::AreEqual(c.lenght, 0); //OK, отсутствие "Type of wisdom:" считается ошибкой, мудрость не заносится в контейнер
+			Clear(c);
+		}
+		TEST_METHOD(Wrong_Wisdom_Type_Of_Wisdom_Empty) //Проверка поведения в случае неверного формата ввода (отсутствуют данные в "Type of wisdom:")
+		{
+			ifstream ifst("in_wr_type_of_w_empty.txt"); //В файле 1 мудрость без данных в "Type of wisdom:"
+			ofstream ofst("out_wr_type_of_w_empty.txt");
+			container c;
+			Init(c);
+			In(c, ifst);
+			Out(c, ofst);
+			Assert::AreEqual(c.lenght, 0); //OK, отсутствие данных в "Type of wisdom:" считается ошибкой, мудрость не заносится в контейнер
+			Clear(c);
+		}
+		TEST_METHOD(Unexpected_Fields) //Проверка поведения в случае неожидаемого формата ввода (поля сдвинуты)
+		{
+			ifstream ifst("in_unexp_fields.txt"); //В файле 1 мудрость со сдвинутыми полями
+			ofstream ofst("out_unexp_fields.txt");
+			container c;
+			Init(c);
+			In(c, ifst);
+			Out(c, ofst);
+			Assert::AreEqual(c.lenght, 1); //OK, мудрость записана
+			Clear(c);
+		}
+		TEST_METHOD(Incorrect_Fields) //Проверка поведения в случае ошибок в полях (были исправления в коде)
+		{
+			ifstream ifst("in_incorrect_fields.txt"); //В файле 5 мудростей, 4 из них с ошибками в полях
+			ofstream ofst("out_incorrect_fields.txt");
+			container c;
+			Init(c);
+			In(c, ifst);
+			Out(c, ofst);
+			Assert::AreEqual(c.lenght, 1); //OK, 1 мудрость записана
+			Clear(c);
+		}
+		TEST_METHOD(Empty_Lines_In_Wisdom) //Проверка поведения при наличии пустых строк между полями
+		{
+			ifstream ifst("in_empty_lines.txt"); //В файле 5 мудростей с пустыми строками между полями
+			ofstream ofst("out_empty_lines.txt");
+			container c;
+			Init(c);
+			In(c, ifst);
+			Out(c, ofst);
+			Assert::AreEqual(c.lenght, 5); //OK, 5 мудростей записано
+			Clear(c);
+		}
 	};
 }
 
