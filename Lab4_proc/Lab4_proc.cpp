@@ -11,6 +11,7 @@ namespace collection_of_wisdom {
 	void Out(container &c, ofstream &ofst);
 	void OutAphorism(container &c, ofstream &ofst);
 	void Sort(container &c);
+	void MultiMethod(container &c, ofstream &ofst);
 }
 using namespace collection_of_wisdom;
 
@@ -35,6 +36,8 @@ int main(int argc, char* argv[]) {
 	Init(c);
 	In(c, ifst);
 	ofst << "Filled container." << endl;
+	MultiMethod(c, ofst);
+	/*
 	Out(c, ofst);//обычный вывод контейнера
 	ofst << "\n\nSorted container." << endl;
 	Sort(c); // cортировка
@@ -42,9 +45,9 @@ int main(int argc, char* argv[]) {
 	ofst << "\n\nAphorism container." << endl;
 	OutAphorism(c, ofst); //вывод только афоризмов
 	//Out(c, ofst); // вывод отсортированного контейнера
+	*/
 	Clear(c);
 	ofst << "Empty container." << endl;
-	//Out(c, ofst);
 	cout << "Goodbye" << endl;
 	return 0;
 }

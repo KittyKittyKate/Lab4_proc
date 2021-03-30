@@ -126,6 +126,7 @@
     <ClCompile Include="aphorism_IN_OUT.cpp" />
     <ClCompile Include="container_constr.cpp" />
     <ClCompile Include="container_IN_OUT.cpp" />
+    <ClCompile Include="container_MM.cpp" />
     <ClCompile Include="Lab4_proc.cpp" />
     <ClCompile Include="proverb_IN_OUT.cpp" />
     <ClCompile Include="puzzle_IN_OUT.cpp" />

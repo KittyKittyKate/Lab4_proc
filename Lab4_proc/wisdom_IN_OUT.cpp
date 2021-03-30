@@ -176,6 +176,7 @@ namespace collection_of_wisdom {
 			cout << "INFORMATION: the end of file." << endl;
 			return 0;
 		}
+		return 0;
 	};
 	void Out(wisdom &s, ofstream &ofst) {
 		ofst << "'" << s.expression;
