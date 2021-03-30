@@ -2,29 +2,30 @@
 #include <iostream>
 #include <string>
 #include "aphorism.h"
+
 using namespace std;
+
 namespace collection_of_wisdom {
 	string FindData(const string &Text, string &Line);
 	char& CheckForOverflow(string & Data, char char_text[], ifstream &ifst, int Len);
-	// Ввод из файла
 	string In(aphorism &a, ifstream &ifst) {
 		string Full_Line;
 		string Data;
 		bool Exit_Flag = true;
 
 		do {
-			getline(ifst, Full_Line);//строка с автором
-			Data = FindData("Author:", Full_Line);//В Data будет автор
+			getline(ifst, Full_Line);
+			Data = FindData("Author:", Full_Line);//В Data будет автор.
 			Exit_Flag = true;
 
-			if (Data.compare("error") == 0) { //если автора нет, то выбрасываем послед. строки и переходим к новой мудрости
-				string Junk; //для мусора
-				getline(ifst, Junk); //Здесь - оценка
+			if (Data.compare("error") == 0) { //Если автора нет, то выбрасываем последующие строки и переходим к новой мудрости.
+				string Junk; //Для мусора.
+				getline(ifst, Junk); //Здесь - оценка.
 				Junk.clear();
 				return "error";
 			}
-			else if (Data.compare("empty") == 0) {//если пустая строка
-				Exit_Flag = false; // если false, то продолжаем цикл
+			else if (Data.compare("empty") == 0) {//Если пустая строка.
+				Exit_Flag = false; //Если false, то идем по циклу дальше.
 			}
 		} while ((ifst.eof() == false) && (Exit_Flag == false));
 
@@ -32,15 +33,8 @@ namespace collection_of_wisdom {
 			cout << "INFORMATION: the end of file." << endl;
 			return "";
 		}
-		else { //если не конец файла, то проверяем на переполнение
+		else { //Если не конец файла, то проверяем на переполнение.
 			*a.author = CheckForOverflow(Data, a.author, ifst, 50);
-			/*if (static_cast<int>(Data.length()) < 50) { //Проверка на переполнение - если длина данных < Len, то просто заносим выражение в переменную
-				strcpy_s(a.author, 50, Data.c_str());
-			}
-			else { //иначе придется отсечь лишнее
-				Data.resize(49);
-				strcpy_s(a.author, 50, Data.c_str());
-			}*/
 			Data.clear();
 			Full_Line.clear();
 			return "";
@@ -49,4 +43,4 @@ namespace collection_of_wisdom {
 	void Out(aphorism &a, ofstream &ofst) {
 		ofst << "' - " << a.author;
 	};
-} // end collection_of_wisdom namespace
+}
