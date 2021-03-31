@@ -9,7 +9,7 @@ namespace collection_of_wisdom {
 	void MultiMethod(container &c, ofstream &ofst) {
 		ofst << "Multimethod." << endl;
 
-		for (int i = 0; i < c.lenght - 1; i++) {
+		for (int i = 0; i < c.lenght - 1; i += 2) {
 			for (int j = i + 1; j < c.lenght; j++) {
 				switch (c.cont[i]->k) {
 				case wisdom::APHORISM:

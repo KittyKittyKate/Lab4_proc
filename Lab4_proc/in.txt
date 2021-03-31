@@ -2,14 +2,67 @@ Type of wisdom:1
 Expression:It never rains, but it pours
 Author:R.Rollan
 Rate:4
+Type of wisdom:1
+Expression:ABC
+Author:DEF
+Rate:5
+
+Type of wisdom:1
+Expression:It never rains, but it pours
+Author:R.Rollan
+Rate:4
 Type of wisdom:2
 Expression:Under a stone mat lies, still no water flows
 Country:Russian
 Rate:4
+
+Type of wisdom:1
+Expression:It never rains, but it pours
+Author:R.Rollan
+Rate:4
+Type of wisdom:3
+Expression:What has a face and two hands, but no arms or legs?
+Answer:Ñlock
+Rate:2
+
+
+Type of wisdom:2
+Expression:Fine words,, butter no parsnips
+Country:Russian
+Rate:9
+Type of wisdom:1
+Expression:ABC
+Author:DEF
+Rate:5
+
+Type of wisdom:2
+Expression:GHI
+Country:Australia
+Rate:3
+Type of wisdom:2
+Expression:Fine words,, butter no parsnips
+Country:Russian
+Rate:9
+
+Type of wisdom:2
+Expression:Fine words,, butter no parsnips
+Country:Russian
+Rate:9
 Type of wisdom:3
 Expression:KLM
 Answer:NOP
 Rate:4
+
+
+Type of wisdom:3
+Expression:KLM
+Answer:NOP
+Rate:4
+Type of wisdom:1
+Expression:ABC
+Author:DEF
+Rate:5
+
 Type of wisdom:3
 Expression:What has a face and two hands, but no arms or legs?
 Answer:Ñlock
@@ -18,3 +71,12 @@ Type of wisdom:2
 Expression:Fine words,, butter no parsnips
 Country:Russian
 Rate:9
+
+Type of wisdom:3
+Expression:What has a face and two hands, but no arms or legs?
+Answer:Ñlock
+Rate:2
+Type of wisdom:3
+Expression:What has a face and two hands, but no arms or legs?
+Answer:Ñlock
+Rate:2

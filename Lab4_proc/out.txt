@@ -1,17 +1,33 @@
 Filled container.
 Multimethod.
+APHORISM and APHORISM.
+'It never rains, but it pours' - R.Rollan. My rate: 4
+'ABC' - DEF. My rate: 5
 APHORISM and PROVERB.
 'It never rains, but it pours' - R.Rollan. My rate: 4
 'Under a stone mat lies, still no water flows' - Russian. My rate: 4
+APHORISM and PUZZLE.
+'It never rains, but it pours' - R.Rollan. My rate: 4
+'What has a face and two hands, but no arms or legs?' - Answer: Ñlock. My rate: 2
+PROVERB and APHORISM.
+'Fine words,, butter no parsnips' - Russian. My rate: 9
+'ABC' - DEF. My rate: 5
+PROVERB and PROVERB.
+'GHI' - Australia. My rate: 3
+'Fine words,, butter no parsnips' - Russian. My rate: 9
 PROVERB and PUZZLE.
-'Under a stone mat lies, still no water flows' - Russian. My rate: 4
+'Fine words,, butter no parsnips' - Russian. My rate: 9
 'KLM' - Answer: NOP. My rate: 4
-PUZZLE and PUZZLE.
+PUZZLE and APHORISM.
 Unknown type
 'KLM' - Answer: NOP. My rate: 4
-'What has a face and two hands, but no arms or legs?' - Answer: Ñlock. My rate: 2
+'ABC' - DEF. My rate: 5
 PUZZLE and PROVERB.
 Unknown type
 'What has a face and two hands, but no arms or legs?' - Answer: Ñlock. My rate: 2
 'Fine words,, butter no parsnips' - Russian. My rate: 9
+PUZZLE and PUZZLE.
+Unknown type
+'What has a face and two hands, but no arms or legs?' - Answer: Ñlock. My rate: 2
+'What has a face and two hands, but no arms or legs?' - Answer: Ñlock. My rate: 2
 Empty container.
